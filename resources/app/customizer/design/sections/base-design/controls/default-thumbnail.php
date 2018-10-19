@@ -10,13 +10,12 @@ use Inc2734\WP_Customizer_Framework\Customizer_Framework;
 $customizer = Customizer_Framework::init();
 
 $customizer->control(
-	'checkbox',
-	'mwt-protected-more',
+	'image',
+	'default-thumbnail',
 	[
-		'label'     => __( 'If the post using more tag and password protect at the same time, display contents before more tag', 'snow-monkey' ),
-		'priority'  => 170,
-		'type'      => 'option',
-		'default'   => true,
+		'label'       => __( 'Default thumbnail', 'snow-monkey' ),
+		'description' => __( 'You can specify the thumbnail to be displayed in the list when the thumbnail is not set.', 'snow-monkey' ),
+		'priority'    => 150,
 	]
 );
 
@@ -26,5 +25,5 @@ if ( ! is_customize_preview() ) {
 
 $panel   = $customizer->get_panel( 'design' );
 $section = $customizer->get_section( 'base-design' );
-$control = $customizer->get_control( 'mwt-protected-more' );
+$control = $customizer->get_control( 'default-thumbnail' );
 $control->join( $section )->join( $panel );
